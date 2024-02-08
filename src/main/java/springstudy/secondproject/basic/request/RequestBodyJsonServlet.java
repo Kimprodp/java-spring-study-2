@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import org.springframework.util.StreamUtils;
 import springstudy.secondproject.basic.HelloData;
 
-@WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/param-body-json")
+@WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/request-body-json")
 public class RequestBodyJsonServlet extends HttpServlet {
 
     private ObjectMapper objectMapper = new ObjectMapper();
