@@ -19,6 +19,7 @@ public class FrontControllerServletV1 extends HttpServlet {
     private Map<String, ControllerV1> controllerMap = new HashMap<>();
 
     public FrontControllerServletV1() {
+        // 생성자로 사용될 URI를 처리할 Controller 매핑
         controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
         controllerMap.put("/front-controller/v1/members/save", new MemberSaveControllerV1());
         controllerMap.put("/front-controller/v1/members", new MemberListControllerV1());
@@ -28,6 +29,7 @@ public class FrontControllerServletV1 extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("FrontControllerServletV1.service");
 
+        // 요청 URI로 처리 가능한 Controller 찾기. 없을 경우 404 반환
         String requestURI = request.getRequestURI();
         ControllerV1 controller = controllerMap.get(requestURI);
         if (controller == null) {

@@ -31,8 +31,8 @@ public class FrontControllerServletV4 extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("FrontControllerServletV4.service");
 
+        // 요청 URI로 처리 가능한 Controller 찾기. 없을 경우 404 반환
         String requestURI = request.getRequestURI();
-
         ControllerV4 controller = controllerMap.get(requestURI);
         if (controller == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
